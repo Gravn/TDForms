@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ticker = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // timer1
+            // ticker
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1;
+            this.ticker.Enabled = true;
+            this.ticker.Interval = 1;
+            this.ticker.Tick += new System.EventHandler(this.ticker_Tick);
             // 
             // Form1
             // 
@@ -44,13 +45,14 @@
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer ticker;
     }
 }
 
