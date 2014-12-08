@@ -35,7 +35,7 @@
             // ticker
             // 
             this.ticker.Enabled = true;
-            this.ticker.Interval = 1;
+            this.ticker.Interval = 40;
             this.ticker.Tick += new System.EventHandler(this.ticker_Tick);
             // 
             // Form1

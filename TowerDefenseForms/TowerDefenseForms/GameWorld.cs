@@ -32,13 +32,13 @@ namespace TowerDefenseForms
             this.backBuffer = BufferedGraphicsManager.Current.Allocate(dc, displayRectangle);
             this.dc = backBuffer.Graphics;
             size = new PointF(displayRectangle.Width, displayRectangle.Height);
-            SetupWorld();
+            gameObjects = new List<GameObject>();
+            gameObjects.Add(new Tower(1, 2f, 2f, 2f, 10, 20, new PointF(250, 250), new PointF[] {new PointF(0, 0), new PointF(100, 0), new PointF(100, 100), new PointF(0,100) }, Color.Blue));
+            //SetupWorld();
         }
 
         public void SetupWorld()
         {
-            gameObjects = new List<GameObject>();
-
             shapes[0] = new PointF[]
             {
                 new PointF(0, 0), 
@@ -46,8 +46,6 @@ namespace TowerDefenseForms
                 new PointF(100, 100), 
                 new PointF(0, 100)
             };
-
-            gameObjects.Add(new Tower(1,2,50,5,100,90,new PointF(250,250),shapes[0],Color.Blue));
         }
 
         public void GameLoop()
