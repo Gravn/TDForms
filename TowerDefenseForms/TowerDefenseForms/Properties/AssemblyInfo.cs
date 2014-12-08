@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TDForms")]
+[assembly: AssemblyTitle("TowerDefenseForms")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TDForms")]
+[assembly: AssemblyProduct("TowerDefenseForms")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a35371ce-43cf-4c38-96cd-a9b07f5f5002")]
+[assembly: Guid("e21c9c06-6e9c-465c-99c6-10f51acdd2ef")]
 
 // Version information for an assembly consists of the following four values:
 //
