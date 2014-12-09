@@ -7,3 +7,12 @@ C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Debug
 C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Debug\TowerDefenseForms.csproj.GenerateResource.Cache
 C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Debug\TowerDefenseForms.exe
 C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Debug\TowerDefenseForms.pdb
+C:\Users\Mads\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\bin\Debug\TowerDefenseForms.exe.config
+C:\Users\Mads\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\bin\Debug\TowerDefenseForms.exe
+C:\Users\Mads\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\bin\Debug\TowerDefenseForms.pdb
+C:\Users\Mads\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Debug\TowerDefenseForms.csprojResolveAssemblyReference.cache
+C:\Users\Mads\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Debug\TowerDefenseForms.Form1.resources
+C:\Users\Mads\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Debug\TowerDefenseForms.Properties.Resources.resources
+C:\Users\Mads\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Debug\TowerDefenseForms.csproj.GenerateResource.Cache
+C:\Users\Mads\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Debug\TowerDefenseForms.exe
+C:\Users\Mads\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Debug\TowerDefenseForms.pdb
