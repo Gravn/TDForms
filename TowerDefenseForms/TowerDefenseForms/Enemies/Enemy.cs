@@ -10,9 +10,9 @@ namespace TowerDefenseForms
     abstract class Enemy : GameObject
     {
         #region fields
-        private int hp, prize;
+        private int prize;
         private static int currentPath;
-        private float armor, speed;
+        private float armor, speed, hp;
         private Point[] path;
         private PointF[] shape;
         public Point[] Path
@@ -31,7 +31,7 @@ namespace TowerDefenseForms
             set { currentPath = value; }
         }
         #endregion
-        public Enemy(float speed, int hp, float armor, Point[] path, int prize, PointF startPos, PointF[] shape, Color color)
+        public Enemy(float speed, float hp, float armor, Point[] path, int prize, PointF startPos, PointF[] shape, Color color)
             : base(startPos, shape, color)
         {
             this.hp = hp;
@@ -40,6 +40,12 @@ namespace TowerDefenseForms
             this.armor = armor;
             this.path = path;
             this.shape = shape;
+        }
+        public override void Update(float deltaTime)
+        {
+            Die();
+            Move();
+            base.Update(deltaTime);
         }
         public void Move()
         {
@@ -86,6 +92,10 @@ namespace TowerDefenseForms
         {
             dc.FillPolygon(new SolidBrush(color),shape);
             base.Draw(dc);
+        }
+        public void GetHit(float dmg)
+        {
+            hp -= dmg;
         }
     }
 }
