@@ -29,15 +29,21 @@ namespace TowerDefenseForms
 
         public override void Update(float deltaTime)
         {
-            base.Update(deltaTime);
+            //base.Update(deltaTime);
+            for (int i = 0; i < shape.Length; i++)
+            {
+                newshape[i].X = shape[i].X + position.X;
+                newshape[i].Y = shape[i].Y + position.Y;
+            }
+            //position.X += 0.001f * deltaTime;
         }
 
         public override void Draw(Graphics dc)
         {
-            //dc.DrawRectangle(Pens.Green,new Rectangle(0,0,100,100));
             Pen p = new Pen(Brushes.Blue, 8);
             p.Color = color;
-            dc.DrawPolygon(p, shape);
+                dc.DrawPolygon(p,newshape);
+
         }
 
         
