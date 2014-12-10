@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enemies\MitigatingEnemy.cs" />
+    <Compile Include="Enemies\HealingEnemy.cs" />
+    <Compile Include="Enemies\SpawningEnemy.cs" />
     <Compile Include="Towers\BombTower.cs" />
     <Compile Include="Effects\Effect.cs" />
     <Compile Include="Enemies\Enemy.cs" />

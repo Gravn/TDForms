@@ -15,12 +15,6 @@ namespace TowerDefenseForms
         private float armor, speed;
         private Point[] path;
         private PointF[] shape;
-        private static PointF currentPos;
-        public static PointF CurrentPos
-        {
-            get { return Enemy.currentPos; }
-            set { Enemy.currentPos = value; }
-        }
         public Point[] Path
         {
             get { return path; }
@@ -31,7 +25,7 @@ namespace TowerDefenseForms
             get { return speed; }
             set { speed = value; }
         }
-        public static int CurrentPath
+        public int CurrentPath
         {
             get { return currentPath; }
             set { currentPath = value; }
@@ -49,33 +43,33 @@ namespace TowerDefenseForms
         }
         public void Move()
         {
-            if(currentPos != path[currentPath])
+            if (position != path[currentPath])
             {
-                if (currentPos.X <= path[currentPath].X)
+                if (position.X <= path[currentPath].X)
                 {
-                    currentPos.X += speed;
+                    position.X += speed;
                 }
-                if (currentPos.Y <= path[currentPath].Y)
+                if (position.Y <= path[currentPath].Y)
                 {
-                    currentPos.Y += speed;
+                    position.Y += speed;
                 }
-                if (currentPos.Y >= path[currentPath].Y)
+                if (position.Y >= path[currentPath].Y)
                 {
-                    currentPos.Y -= speed;
+                    position.Y -= speed;
                 }
-                if (currentPos.X >= path[currentPath].Y)
+                if (position.X >= path[currentPath].Y)
                 {
-                    currentPos.X -= speed;
+                    position.X -= speed;
                 }
             }
-            else if (currentPos == path[currentPath])
+            else if (position == path[currentPath])
             {
                 currentPath++;
             }
         }
         public void Goal()
         {
-            if(currentPos == path.Last())
+            if (position == path.Last())
             {
 
                 GameWorld.gameobjects.Remove(this);
@@ -87,6 +81,13 @@ namespace TowerDefenseForms
             {
                 GameWorld.gameobjects.Remove(this);
             }
+        }
+        public override void Draw(Graphics dc)
+        {
+            SolidBrush b;
+            b.Color = color;
+            dc.FillPolygon(b,shape);
+            base.Draw(dc);
         }
     }
 }

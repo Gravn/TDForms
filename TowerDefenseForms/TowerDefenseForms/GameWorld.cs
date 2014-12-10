@@ -20,7 +20,12 @@ namespace TowerDefenseForms
 
         public DateTime endTime;
         public static float deltaTime;
-
+        private Point[] path = new Point[]
+        {
+            new Point(100,450), 
+            new Point(450,450),
+            new Point(450,600),
+        };
         private BufferedGraphics backBuffer;
         public PointF size;
         public Image[] images;
@@ -34,7 +39,8 @@ namespace TowerDefenseForms
             this.dc = backBuffer.Graphics;
             size = new PointF(displayRectangle.Width, displayRectangle.Height);
             gameObjects = new List<GameObject>();
-            gameObjects.Add(new LaserTower(1, 2f, 2f, 2f, 10, 20, new PointF(250, 250), new PointF[] {new PointF(0, 0), new PointF(100, 0), new PointF(100, 100), new PointF(0,100) }, Color.Blue));
+            //gameObjects.Add(new LaserTower(1, 2f, 2f, 2f, 10, 20, new PointF(250, 250), new PointF[] {new PointF(0, 0), new PointF(100, 0), new PointF(100, 100), new PointF(0,100) }, Color.Blue));
+            gameobjects.Add(new SpawningEnemy(10, 100, 0, path, 100, new PointF(100, 100f), new PointF[] { new PointF(0, 0), new PointF(100, 0), new PointF(100, 100), new PointF(0, 100) }, 4));
             //SetupWorld();
         }
 
@@ -42,9 +48,9 @@ namespace TowerDefenseForms
         {
             shapes[0] = new PointF[]
             {
-                new PointF(0, 0), 
-                new PointF(100, 0), 
-                new PointF(100, 100), 
+                new PointF(0, 0),
+                new PointF(100, 0),
+                new PointF(100, 100),
                 new PointF(0, 100)
             };
         }

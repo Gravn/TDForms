@@ -10,8 +10,8 @@ namespace TowerDefenseForms
     class SpawningEnemy : Enemy
     {
         private int spawns, hp, prize;
-        public SpawningEnemy(float speed, int hp, float armor, Point[] path, int prize, PointF startPos, PointF[] shape, Color color, int spawns)
-            : base(speed, hp, armor, path, prize, startPos, shape, color)
+        public SpawningEnemy(float speed, int hp, float armor, Point[] path, int prize, PointF startPos, PointF[] shape, int spawns)
+            : base(speed, hp, armor, path, prize, startPos, shape, Color.Blue)
         {
             this.hp = hp;
             this.prize = prize;
@@ -19,16 +19,17 @@ namespace TowerDefenseForms
         }
         public override void Die()
         {
+            //Give the spawned enemies a proper path to follow
             List<Point> path = Path.ToList();
             for(int i = CurrentPath; i > 0; i--)
             {
                 path.RemoveAt(i);
             }
             Point[] newpath = path.ToArray();
-            //spawn 3 more weaker enemies
+            //spawn weaker enemies
             for(int i = 0; i < spawns; i++)
             {
-                GameWorld.gameobjects.Add(new NormalEnemy(10f,hp/spawns, 0f, newpath, prize/spawns, CurrentPos, this.shape, Color.Azure));
+                GameWorld.gameobjects.Add(new NormalEnemy(10f,hp/spawns, 0f, newpath, prize/spawns, position, this.shape, Color.Azure));
             }
             base.Die();
         }
