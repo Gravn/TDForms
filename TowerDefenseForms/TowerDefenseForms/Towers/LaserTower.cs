@@ -31,19 +31,6 @@ namespace TowerDefenseForms
         public override void Update(float deltaTime)
         {
             base.Update(deltaTime);
-
-            //find nearest mix these 2
-            /*
-            foreach (Enemy e in GameWorld.gameobjects)
-            {
-                float nearest = range;
-                if (Math.Sqrt(e.position.X - position.X * e.position.X - position.X + e.position.Y - position.Y * e.position.Y - position.Y) <= nearest)
-                {
-                    nearest = (float)Math.Sqrt(e.position.X - position.X * e.position.X - position.X + e.position.Y - position.Y * e.position.Y - position.Y);
-                }
-                GameWorld.gameobjects.Add(new LaserEffect(this,e,2,3,position,shape,Color.Red));
-            }
-            */
             GameObject target = null;
             for (int i = 0; i < GameWorld.gameobjects.Count; i++)
             {
@@ -60,7 +47,10 @@ namespace TowerDefenseForms
                     }
                 }
             }
-            GameWorld.gameobjects.Add(new LaserEffect(this,target, 2, 3, position, shape, Color.Red));
+            if (target != null)
+            {
+                GameWorld.gameobjects.Add(new LaserEffect(this, target, 2, 3, position, shape, Color.Red));
+            }
 
 
 
