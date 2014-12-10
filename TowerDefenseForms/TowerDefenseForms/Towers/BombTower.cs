@@ -45,11 +45,36 @@ namespace TowerDefenseForms
         public override void Draw(Graphics dc)
         {
             base.Draw(dc);
+
         }
 
         public override void Attack()
         {
             base.Attack();
+             GameObject target = this;
+
+            for (int i = 0; i < GameWorld.gameobjects.Count; i++)
+            {
+                if (GameWorld.gameobjects[i] is Enemy)
+                {
+                    //get nearest
+                    float dx = GameWorld.gameobjects[i].position.X - position.X;
+                    float dy = GameWorld.gameobjects[i].position.Y - position.Y;
+                    float distance = (float)Math.Sqrt(dx * dx + dy * dy);
+                    float nearest = range;
+                    if (distance < nearest)
+                    {
+                        nearest = distance;
+                        target = GameWorld.gameobjects[i];
+                    }
+                }
+            }
+            if(target != null)
+            {
+                GameWorld.gameobjects.Add(new BombEffect(this,target,damage,bombRadius,10f,target.position,new PointF[] {position},Color.PowderBlue));
+                fireTimer =0;
+            }
+
             //Create BombEffect
         }
     }

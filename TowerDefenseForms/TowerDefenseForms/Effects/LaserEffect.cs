@@ -21,22 +21,21 @@ namespace TowerDefenseForms
             this.lifeTime = lifeTime;
             //width needs proper calc, otherwise too wide.
             width = damage;
-        }
-
-        public override void Update(float deltaTime)
-        {
- 	        base.Update(deltaTime);
-
             if (target is Enemy)
             {
                 (target as Enemy).Die();
             }
         }
 
+        public override void Update(float deltaTime)
+        {
+ 	        base.Update(deltaTime);
+        }
+
         public override void Draw(Graphics dc)
         {
  	        base.Draw(dc);
-            dc.DrawLine(new Pen(Brushes.Green, width), origin.position, target.position);
+            dc.DrawLine(new Pen(new SolidBrush(color), width),new PointF(origin.position.X+32,origin.position.Y+32), new PointF(target.position.X+32,target.position.Y+32));
         }
     }
 }

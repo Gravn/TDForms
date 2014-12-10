@@ -30,11 +30,10 @@ namespace TowerDefenseForms
 
         public override void Update(float deltaTime)
         {
-            base.Update(deltaTime);
+            //base.Update(deltaTime);
             fireTimer += deltaTime;
 
-
-            if (fireTimer >= 1/rateOfFire)
+            if(fireTimer >= 1/rateOfFire)
             {
                 Attack();
             }
@@ -47,19 +46,17 @@ namespace TowerDefenseForms
         
         public override void Draw(Graphics dc)
         {
-            Pen p = new Pen(Brushes.Coral, 8);
-            p.Color = color;
-            dc.DrawPolygon(p,newshape);
             base.Draw(dc);
+            Pen p = new Pen(Brushes.Blue);
+            p.Color = color;
+            dc.DrawPolygon(p,shape);
+
         }
 
         public virtual void Attack()
         {
-    
-
+            
         }
-
-
 
         public virtual void Sell()
         {

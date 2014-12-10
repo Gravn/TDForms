@@ -11,7 +11,7 @@ namespace TowerDefenseForms
     abstract class GameObject
     {
         public PointF position;
-        public PointF[] shape,newshape;
+        public PointF[] shape;
         public Color color;
 
         public GameObject(PointF position,PointF[] shape,Color color)
@@ -19,12 +19,11 @@ namespace TowerDefenseForms
             this.position = position;
             this.color = color;
             this.shape = shape;
-            newshape = shape;
 
             for (int i = 0; i < shape.Length; i++)
             {
-                newshape[i].X = shape[i].X + position.X;
-                newshape[i].Y = shape[i].Y + position.Y;
+                shape[i].X += position.X;
+                shape[i].Y += position.Y;
             }
         }
 

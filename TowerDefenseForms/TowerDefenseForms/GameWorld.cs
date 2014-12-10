@@ -39,8 +39,11 @@ namespace TowerDefenseForms
             this.dc = backBuffer.Graphics;
             size = new PointF(displayRectangle.Width, displayRectangle.Height);
             gameObjects = new List<GameObject>();
-            //gameObjects.Add(new LaserTower(1, 2f, 2f, 2f, 10, 20, new PointF(250, 250), new PointF[] {new PointF(0, 0), new PointF(100, 0), new PointF(100, 100), new PointF(0,100) }, Color.Blue));
-            gameobjects.Add(new SpawningEnemy(10, 100, 0, path, 100, new PointF(100, 100f), new PointF[] { new PointF(0, 0), new PointF(100, 0), new PointF(100, 100), new PointF(0, 100) }, 4));
+            gameObjects.Add(new BombTower(1, 2f, 3f, 600f, 100f, 0.1f,100,100, new PointF(200, 300), new PointF[] { new PointF(0, 0), new PointF(64, 0), new PointF(64, 64), new PointF(0,64) }, Color.Red));
+            gameObjects.Add(new LaserTower(1, 2f, 300, 0.1f, 10, 20, new PointF(500, 600), new PointF[] { new PointF(0, 0), new PointF(64, 0), new PointF(64, 64), new PointF(0, 64) }, Color.Green));
+
+            gameObjects.Add(new NormalEnemy(10,100,5,path,10,new PointF(100,200),new PointF[]{ new PointF(0,0),new PointF(64,-32), new PointF(64,32) },Color.Blue));
+            gameObjects.Add(new SpawningEnemy(10, 100, 0, path, 100, new PointF(100, 100), new PointF[] { new PointF(0, 0), new PointF(64, 0), new PointF(64, 64), new PointF(0, 64) }, 4));
             //SetupWorld();
         }
 
@@ -76,7 +79,7 @@ namespace TowerDefenseForms
 
         private void Draw()
         {
-            dc.Clear(Color.Black);
+            dc.Clear(Color.CornflowerBlue);
             for (int i = 0; i < gameObjects.Count; i++)
             {
                 gameObjects[i].Draw(dc);

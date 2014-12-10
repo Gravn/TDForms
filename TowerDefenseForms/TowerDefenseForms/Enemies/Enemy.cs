@@ -84,9 +84,7 @@ namespace TowerDefenseForms
         }
         public override void Draw(Graphics dc)
         {
-            SolidBrush b;
-            b.Color = color;
-            dc.FillPolygon(b,shape);
+            dc.FillPolygon(new SolidBrush(color),shape);
             base.Draw(dc);
         }
     }

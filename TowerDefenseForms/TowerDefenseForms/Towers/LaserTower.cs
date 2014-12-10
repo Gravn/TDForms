@@ -31,11 +31,25 @@ namespace TowerDefenseForms
         public override void Update(float deltaTime)
         {
             base.Update(deltaTime);
-            GameObject target = null;
+            //position.X++;
+            //shape[0].X++;
+        }
+
+        public override void Draw(Graphics dc)
+        {
+            base.Draw(dc);
+        }
+
+        public override void Attack()
+        {
+            base.Attack();
+            GameObject target = this;
+
             for (int i = 0; i < GameWorld.gameobjects.Count; i++)
             {
                 if (GameWorld.gameobjects[i] is Enemy)
                 {
+                    //get nearest
                     float dx = GameWorld.gameobjects[i].position.X - position.X;
                     float dy = GameWorld.gameobjects[i].position.Y - position.Y;
                     float distance = (float)Math.Sqrt(dx * dx + dy * dy);
@@ -47,24 +61,11 @@ namespace TowerDefenseForms
                     }
                 }
             }
-            if (target != null)
+            if(target != null)
             {
-                GameWorld.gameobjects.Add(new LaserEffect(this, target, 2, 3, position, shape, Color.Red));
+                GameWorld.gameobjects.Add(new LaserEffect(this, target, 20, 0.1f, position, new PointF[]{new PointF(0,0)}, Color.Red));
+                fireTimer = 0;
             }
-
-
-
-        }
-
-        public override void Draw(Graphics dc)
-        {
-            base.Draw(dc);
-        }
-
-        public override void Attack()
-        {
-            base.Attack();
-            //Create LaserEffect
         }
     }
 }

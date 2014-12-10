@@ -19,12 +19,11 @@ namespace TowerDefenseForms
             this.target = target;
             this.damage = damage;
             this.lifeTime = lifeTime;
-
         }
 
         public override void Update(float deltaTime)
         {
-            timer += deltaTime;
+            timer += deltaTime;        
             if (timer >= lifeTime)
             {
                 Destroy(this);
