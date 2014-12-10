@@ -44,20 +44,24 @@ namespace TowerDefenseForms
                 GameWorld.gameobjects.Add(new LaserEffect(this,e,2,3,position,shape,Color.Red));
             }
             */
-
+            GameObject target = null;
             for (int i = 0; i < GameWorld.gameobjects.Count; i++)
             {
                 if (GameWorld.gameobjects[i] is Enemy)
                 {
                     float dx = GameWorld.gameobjects[i].position.X - position.X;
                     float dy = GameWorld.gameobjects[i].position.Y - position.Y;
-
-                    if (Math.Sqrt(dx * dx + dy * dy) < range)
+                    float distance = (float)Math.Sqrt(dx * dx + dy * dy);
+                    float nearest = range;
+                    if (distance < nearest)
                     {
-                        GameWorld.gameobjects.Add(new LaserEffect(this,GameWorld.gameobjects[i], 2, 3, position, shape, Color.Red));
+                        nearest = distance;
+                        target = GameWorld.gameobjects[i];
                     }
                 }
             }
+            GameWorld.gameobjects.Add(new LaserEffect(this,target, 2, 3, position, shape, Color.Red));
+
 
 
         }
