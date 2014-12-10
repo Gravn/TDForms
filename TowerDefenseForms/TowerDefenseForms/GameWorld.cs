@@ -25,7 +25,8 @@ namespace TowerDefenseForms
         public PointF size;
         public Image[] images;
         public PointF[][] shapes;
-        public float[][] stats;
+        public static float[][] stats;
+        public static int money;
 
         public GameWorld(Graphics dc, Rectangle displayRectangle)
         {
@@ -33,7 +34,7 @@ namespace TowerDefenseForms
             this.dc = backBuffer.Graphics;
             size = new PointF(displayRectangle.Width, displayRectangle.Height);
             gameObjects = new List<GameObject>();
-            gameObjects.Add(new Tower(1, 2f, 2f, 2f, 10, 20, new PointF(250, 250), new PointF[] {new PointF(0, 0), new PointF(100, 0), new PointF(100, 100), new PointF(0,100) }, Color.Blue));
+            gameObjects.Add(new LaserTower(1, 2f, 2f, 2f, 10, 20, new PointF(250, 250), new PointF[] {new PointF(0, 0), new PointF(100, 0), new PointF(100, 100), new PointF(0,100) }, Color.Blue));
             //SetupWorld();
         }
 

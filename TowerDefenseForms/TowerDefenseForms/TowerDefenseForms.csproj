@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BombTower.cs" />
     <Compile Include="Effect.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Form1.cs">
@@ -54,10 +55,13 @@
     </Compile>
     <Compile Include="GameObject.cs" />
     <Compile Include="GameWorld.cs" />
+    <Compile Include="LaserEffect.cs" />
     <Compile Include="LaserTower.cs" />
     <Compile Include="NormalEnemy.cs" />
+    <Compile Include="PoisonTower.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SlowTower.cs" />
     <Compile Include="Tower.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
