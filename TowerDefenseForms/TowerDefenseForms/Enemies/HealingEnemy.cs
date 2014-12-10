@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace TowerDefenseForms
 {
-    class NormalEnemy : Enemy
+    class HealingEnemy : Enemy
     {
-        public NormalEnemy(float speed, int hp, float armor, Point[] path, int prize, PointF startPos, PointF[] shape, Color color)
+        public HealingEnemy(float speed, int hp, float armor, Point[] path, int prize, PointF startPos, PointF[] shape, Color color)
             : base(speed, hp, armor, path, prize, startPos, shape, color)
         {
 
         }
+        
     }
 }
