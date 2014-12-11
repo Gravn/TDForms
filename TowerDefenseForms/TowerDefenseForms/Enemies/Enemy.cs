@@ -43,7 +43,7 @@ namespace TowerDefenseForms
         }
         public override void Update(float deltaTime)
         {
-            Die();
+                Die();
             Move();
             base.Update(deltaTime);
         }

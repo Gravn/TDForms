@@ -8,19 +8,22 @@ using System.Windows.Forms;
 
 namespace TowerDefenseForms
 {
-    class LaserEffect:Effect
+    class IceEffect : Effect
     {
         private GameObject origin, target;
-        private float damage, lifeTime,width;
+        private float damage, lifeTime,slowFactor;
+        private PointF[] shape;
 
-        public LaserEffect(GameObject origin,GameObject target, float damage, float lifeTime,PointF position,PointF[] shape,Color color):base(origin,target,damage,lifeTime,position,shape,color)
+        public IceEffect(GameObject origin, GameObject target, float damage, float lifeTime, PointF position, PointF[] shape, Color color)
+            : base(origin, target, damage, lifeTime, position, shape, color)
         {
             this.origin = origin;
             this.target = target;
             this.damage = damage;
             this.lifeTime = lifeTime;
+            this.shape = target.shape;
+
             //width needs proper calc, otherwise too wide.
-            width = damage;
             if (target is Enemy)
             {
                 (target as Enemy).GetHit(damage);
@@ -29,13 +32,14 @@ namespace TowerDefenseForms
 
         public override void Update(float deltaTime)
         {
- 	        base.Update(deltaTime);
+            base.Update(deltaTime);
         }
 
         public override void Draw(Graphics dc)
         {
- 	        base.Draw(dc);
-            dc.DrawLine(new Pen(new SolidBrush(color), width),new PointF(origin.position.X+32,origin.position.Y+32), new PointF(target.position.X+32,target.position.Y+32));
+            base.Draw(dc);
+            
+            dc.FillPolygon(Brushes.AntiqueWhite,shape);
         }
     }
 }

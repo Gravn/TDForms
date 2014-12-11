@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BombEffect.cs" />
+    <Compile Include="Effects\IceEffect.cs" />
     <Compile Include="Enemies\MitigatingEnemy.cs" />
     <Compile Include="Enemies\HealingEnemy.cs" />
     <Compile Include="Enemies\SpawningEnemy.cs" />

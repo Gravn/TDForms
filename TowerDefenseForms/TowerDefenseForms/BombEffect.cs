@@ -21,11 +21,6 @@ namespace TowerDefenseForms
             this.lifeTime = lifeTime;
             this.bombRadius = bombRadius;
             //width needs proper calc, otherwise too wide.
-
-            if (target is Enemy)
-            {
-                (target as Enemy).Die();
-            }
         }
 
         public override void Update(float deltaTime)

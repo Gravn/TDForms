@@ -51,7 +51,7 @@ namespace TowerDefenseForms
         public override void Attack()
         {
             base.Attack();
-             GameObject target = this;
+             GameObject target = null;
 
             for (int i = 0; i < GameWorld.gameobjects.Count; i++)
             {

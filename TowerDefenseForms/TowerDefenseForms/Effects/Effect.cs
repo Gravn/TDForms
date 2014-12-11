@@ -23,12 +23,13 @@ namespace TowerDefenseForms
 
         public override void Update(float deltaTime)
         {
-            timer += deltaTime;        
+            base.Update(deltaTime);
+            timer +=10f*deltaTime;        
             if (timer >= lifeTime)
             {
                 Destroy(this);
             }
- 	        base.Update(deltaTime);
+
         }
 
         public override void Draw(Graphics dc)
