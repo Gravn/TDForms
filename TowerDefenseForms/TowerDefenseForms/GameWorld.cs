@@ -78,9 +78,9 @@ namespace TowerDefenseForms
             gameObjects.Add(new BombTower(1, 1f, 3f, 600f, 100f, .1f, 300, 200, new PointF(256, 256),shapes[0], Color.Red));
             gameObjects.Add(new LaserTower(1, 1f, 300, 5f, 2, 20, new PointF(256,384),shapes[0], Color.Green));
 
-            gameObjects.Add(new NormalEnemy(10, 100, 5, path, 10, new PointF(128, 64),shapes[0], Color.Blue));
-            gameObjects.Add(new NormalEnemy(10, 100, 5, path, 10, new PointF(0, 64), shapes[0], Color.Blue));
-            gameObjects.Add(new SpawningEnemy(10, 100, 0, path, 100, new PointF(100, 100), shapes[0], 4));    
+            gameObjects.Add(new NormalEnemy(2, 100, 5, path, 10, new PointF(128, 0),shapes[0], Color.Blue));
+            gameObjects.Add(new NormalEnemy(2, 100, 5, path, 10, new PointF(128, -128), shapes[0], Color.Blue));
+            gameObjects.Add(new SpawningEnemy(2, 100, 0, path, 100, new PointF(128,-256), shapes[0], 4));    
         }
 
         public void GameLoop()
@@ -100,7 +100,6 @@ namespace TowerDefenseForms
                         gameObjects.Add(new LaserTower(1, 1f, 300, 5f, 2, 20, new PointF(gameObjects[i].position.X, gameObjects[i].position.Y), shapes[0], Color.Green));      
                     }
                 }
-
             }
 
             Update();

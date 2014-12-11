@@ -34,7 +34,7 @@ namespace TowerDefenseForms
 
         public override void Draw(Graphics dc)
         {
- 	        base.Draw(dc);
+ 	        //base.Draw(dc);
         }
     }
 }

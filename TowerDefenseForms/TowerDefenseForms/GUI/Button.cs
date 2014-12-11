@@ -8,14 +8,14 @@ using System.Windows.Forms;
 
 namespace TowerDefenseForms
 {
-    class Button : GameObject
+    class Button : GUIElement
     {
         private float width, height;
         private RectangleF rect;
         private bool hover;
 
         public Button(float width, float height, PointF position, PointF[] shape, Color color)
-            : base(position, shape, color)
+            : base(width,height,position, shape, color)
         {
             this.width = width;
             this.height = height;

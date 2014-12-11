@@ -30,7 +30,7 @@ namespace TowerDefenseForms
             //spawn weaker enemies
             for(int i = 0; i < spawns; i++)
             {
-                GameWorld.gameobjects.Add(new NormalEnemy(10f,hp/spawns, 0f, newpath, prize/spawns, position, new PointF[]{new PointF(0,0)}, Color.Red));
+                GameWorld.gameobjects.Add(new NormalEnemy(2,hp/spawns, 0f, newpath, prize/spawns, position,shape, Color.Red));
             }
             base.Die();
         }

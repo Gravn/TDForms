@@ -34,7 +34,7 @@ namespace TowerDefenseForms
 
         public override void Draw(Graphics dc)
         {
- 	        base.Draw(dc);
+ 	        //base.Draw(dc);
             dc.DrawLine(new Pen(new SolidBrush(color), width),new PointF(origin.position.X+32,origin.position.Y+32), new PointF(target.position.X+32,target.position.Y+32));
         }
     }
