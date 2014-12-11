@@ -32,7 +32,6 @@ namespace TowerDefenseForms
         public static PointF[][] shapes = new PointF[10][];
         public static float[][] stats;
         public static int money;
-
         public GameWorld(Graphics dc, Rectangle displayRectangle)
         {
             this.backBuffer = BufferedGraphicsManager.Current.Allocate(dc, displayRectangle);
@@ -72,16 +71,16 @@ namespace TowerDefenseForms
             {
                 for (int j = 0; j < size.Y / 64 - 1; j++)
                 {
-                    gameObjects.Add(new Button(63, 63, new PointF(i * 64, j * 64),"", Color.Black));
+                    gameObjects.Add(new Button(63, 63, new PointF(i * 64, j * 64), new PointF[] { new PointF(0, 0) }, Color.BlueViolet));
                 }
             }
+            
+            //gameObjects.Add(new BombTower(1, 1f, 3f, 600f, 100f, .1f, 300, 200, new PointF(256, 256),shapes[0], Color.Red));
+            gameObjects.Add(new LaserTower(1, 1f, 300, .5f, 2, 20, new PointF(256,384),shapes[0], Color.Green));
 
-            gameObjects.Add(new BombTower(1, .1f, 3f, 600f, 100f,5f, 300, 200, new PointF(256, 256),shapes[0], Color.Red));
-            gameObjects.Add(new LaserTower(1, .1f, 300, 5f, 2, 20, new PointF(256,384),shapes[0], Color.Green));
-
-            gameObjects.Add(new NormalEnemy(2, 100, 5, path, 10, new PointF(128, 0),shapes[0], Color.Blue));
-            gameObjects.Add(new NormalEnemy(2, 100, 5, path, 10, new PointF(128, -128), shapes[0], Color.Blue));
-            gameObjects.Add(new SpawningEnemy(2, 100, 0, path, 100, new PointF(128,-256), shapes[0], 4));    
+            //gameObjects.Add(new NormalEnemy(2, 3000, 5, path, 10, new PointF(128, 0),shapes[0], Color.Blue));
+            //gameObjects.Add(new NormalEnemy(2, 3000, 5, path, 10, new PointF(128, -128), shapes[0], Color.Blue));
+            gameObjects.Add(new SpawningEnemy(2, 2000, 0, path, 100, new PointF(128,-256), shapes[0], 4, Color.Aquamarine));
         }
 
         public void GameLoop()
@@ -98,12 +97,10 @@ namespace TowerDefenseForms
                 { 
                     if((gameObjects[i] as Button).Clicked())
                     {
-                        //gameObjects.Add(new LaserTower(1, .01f, 300, 5f, 2, 20, new PointF(gameObjects[i].position.X, gameObjects[i].position.Y), shapes[0], Color.Green));      
+                        gameObjects.Add(new LaserTower(1, 1f, 300, 5f, 2, 20, new PointF(gameObjects[i].position.X, gameObjects[i].position.Y), shapes[0], Color.Green));      
                     }
                 }
             }
-
-            
 
             Update();
             Draw();
