@@ -33,8 +33,8 @@ namespace TowerDefenseForms
         }
 
         public virtual void Draw(Graphics dc)
-        { 
-            
+        {
+            dc.DrawString(position.X + ":" + position.Y, new Font("Arial",8f,FontStyle.Regular), Brushes.White, new PointF(position.X+12,position.Y+28));
         }
 
         public void Destroy(GameObject go)

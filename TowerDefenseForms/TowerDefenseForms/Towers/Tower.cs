@@ -30,7 +30,7 @@ namespace TowerDefenseForms
 
         public override void Update(float deltaTime)
         {
-            //base.Update(deltaTime);
+            base.Update(deltaTime);
             fireTimer += deltaTime;
 
             if(fireTimer >= 1/rateOfFire)

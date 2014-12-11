@@ -71,7 +71,7 @@ namespace TowerDefenseForms
             }
             if(target != null)
             {
-                GameWorld.gameobjects.Add(new BombEffect(this,target,damage,bombRadius,10f,target.position,new PointF[] {position},Color.PowderBlue));
+                GameWorld.gameobjects.Add(new BombEffect(this,target,damage,bombRadius,3f,target.position,new PointF[] {position},Color.PowderBlue));
                 fireTimer =0;
             }
 

@@ -40,7 +40,7 @@ namespace TowerDefenseForms
                     float distance = (float)Math.Sqrt(dx * dx + dy * dy);
                     if (distance <= bombRadius)
                     {
-                        GameWorld.gameobjects.Add(new LaserEffect(this, GameWorld.gameobjects[i], 20, 0.1f, position, new PointF[] { new PointF(0, 0) }, Color.Red));
+                        GameWorld.gameobjects.Add(new LaserEffect(this, GameWorld.gameobjects[i],damage, 0.1f, position, new PointF[] { new PointF(0, 0) }, Color.Red));
                     }
                 }
             }

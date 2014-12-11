@@ -63,7 +63,7 @@ namespace TowerDefenseForms
             }
             if(target != null)
             {
-                GameWorld.gameobjects.Add(new LaserEffect(this, target, 20, 0.1f, position, new PointF[]{new PointF(0,0)}, Color.Red));
+                GameWorld.gameobjects.Add(new LaserEffect(this, target, 5, 0.5f, position, new PointF[]{new PointF(0,0)}, Color.Red));
                 fireTimer = 0;
             }
         }

@@ -14,7 +14,7 @@ namespace TowerDefenseForms
         private static int currentPath;
         private float armor, speed, hp;
         private Point[] path;
-        private PointF[] shape;
+        private PointF[] shape,newshape;
         public Point[] Path
         {
             get { return path; }
@@ -40,11 +40,20 @@ namespace TowerDefenseForms
             this.armor = armor;
             this.path = path;
             this.shape = shape;
+            newshape = new PointF[shape.Length];
         }
         public override void Update(float deltaTime)
         {
-                Die();
+            Die();
             Move();
+
+            //gravn movement:
+            for (int i = 0; i < shape.Length; i++)
+            {
+                newshape[i].X = -100 +shape[i].X + position.X;
+                newshape[i].Y = -100 +shape[i].Y + position.Y;
+            }
+
             base.Update(deltaTime);
         }
         public void Move()
@@ -90,7 +99,7 @@ namespace TowerDefenseForms
         }
         public override void Draw(Graphics dc)
         {
-            dc.FillPolygon(new SolidBrush(color),shape);
+            dc.FillPolygon(new SolidBrush(color),newshape);
             base.Draw(dc);
         }
         public void GetHit(float dmg)
