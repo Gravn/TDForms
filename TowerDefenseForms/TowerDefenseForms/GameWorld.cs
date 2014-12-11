@@ -29,7 +29,7 @@ namespace TowerDefenseForms
         private BufferedGraphics backBuffer;
         public PointF size;
         public Image[] images;
-        public PointF[][] shapes = new PointF[10][];
+        public static PointF[][] shapes = new PointF[10][];
         public static float[][] stats;
         public static int money;
         public GameWorld(Graphics dc, Rectangle displayRectangle)
@@ -45,10 +45,10 @@ namespace TowerDefenseForms
         {
             shapes[0] = new PointF[]
             {
-                new PointF(0, 0),
-                new PointF(64, 0),
-                new PointF(64, 64),
-                new PointF(0, 64)
+                new PointF(0,0),
+                new PointF(64,0),
+                new PointF(64,64),
+                new PointF(0,64)
             };
 
             shapes[1] = new PointF[]
@@ -71,7 +71,7 @@ namespace TowerDefenseForms
             {
                 for (int j = 0; j < size.Y / 64 - 1; j++)
                 {
-                    gameObjects.Add(new GUIElement(63, 63, new PointF(i * 64, j * 64), new PointF[] { new PointF(0, 0) }, Color.BlueViolet));
+                    gameObjects.Add(new Button(63, 63, new PointF(i * 64, j * 64), new PointF[] { new PointF(0, 0) }, Color.BlueViolet));
                 }
             }
             
@@ -80,7 +80,7 @@ namespace TowerDefenseForms
 
             gameObjects.Add(new NormalEnemy(10, 100, 5, path, 10, new PointF(128, 64),shapes[0], Color.Blue));
             gameObjects.Add(new NormalEnemy(10, 100, 5, path, 10, new PointF(0, 64), shapes[0], Color.Blue));
-            gameObjects.Add(new SpawningEnemy(10, 100, 0, path, 100, new PointF(100, 100),shapes[0], 4));            
+            gameObjects.Add(new SpawningEnemy(10, 100, 0, path, 100, new PointF(100, 100), shapes[0], 4));    
         }
 
         public void GameLoop()
@@ -90,8 +90,23 @@ namespace TowerDefenseForms
             int milliseconds = realDeltaTime.Milliseconds > 0 ? realDeltaTime.Milliseconds : 1;
             deltaTime = 1 / (1000 / (float)milliseconds);
             endTime = DateTime.Now;
+
+            for (int i = 0; i < gameObjects.Count; i++)
+            {
+                if (gameObjects[i] is Button)
+                { 
+                    if((gameObjects[i] as Button).Clicked())
+                    {
+                        gameObjects.Add(new LaserTower(1, 1f, 300, 5f, 2, 20, new PointF(gameObjects[i].position.X, gameObjects[i].position.Y), shapes[0], Color.Green));      
+                    }
+                }
+
+            }
+
             Update();
             Draw();
+
+
         }
 
         private void Update()
