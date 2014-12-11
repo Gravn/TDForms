@@ -11,10 +11,9 @@ namespace TowerDefenseForms
     {
         #region fields
         private int prize;
-        private static int currentPath;
+        private int currentPath;
         private float armor, speed, hp;
         private Point[] path;
-        private PointF[] shape,newshape;
         public Point[] Path
         {
             get { return path; }
@@ -39,12 +38,16 @@ namespace TowerDefenseForms
             this.prize = prize;
             this.armor = armor;
             this.path = path;
-            this.shape = shape;
             newshape = new PointF[shape.Length];
         }
         public override void Update(float deltaTime)
         {
-            Die();
+            if (hp <= 0)
+            {
+                Die();
+                
+            }
+            
             Move();
 
             //gravn movement:
@@ -58,28 +61,28 @@ namespace TowerDefenseForms
         }
         public void Move()
         {
-            if (position != path[currentPath])
+            if (this.position != path[currentPath])
             {
-                if (position.X <= path[currentPath].X)
+                if (this.position.X < path[currentPath].X)
                 {
-                    position.X += speed;
+                    this.position.X += speed;
                 }
-                if (position.Y <= path[currentPath].Y)
+                if (this.position.Y < path[currentPath].Y)
                 {
-                    position.Y += speed;
+                    this.position.Y += speed;
                 }
-                if (position.Y >= path[currentPath].Y)
+                if (this.position.Y > path[currentPath].Y)
                 {
-                    position.Y -= speed;
+                    this.position.Y -= speed;
                 }
-                if (position.X >= path[currentPath].Y)
+                if (this.position.X > path[currentPath].Y)
                 {
-                    position.X -= speed;
+                    this.position.X -= speed;
                 }
             }
-            else if (position == path[currentPath])
+            else
             {
-                currentPath++;
+                this.currentPath++;
             }
         }
         public void Goal()
@@ -92,10 +95,7 @@ namespace TowerDefenseForms
         }
         public virtual void Die()
         {
-            if(hp <= 0)
-            {
-                GameWorld.gameobjects.Remove(this);
-            }
+            GameWorld.gameobjects.Remove(this);
         }
         public override void Draw(Graphics dc)
         {
