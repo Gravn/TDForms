@@ -50,8 +50,8 @@ namespace TowerDefenseForms
             //gravn movement:
             for (int i = 0; i < shape.Length; i++)
             {
-                newshape[i].X = -100 +shape[i].X + position.X;
-                newshape[i].Y = -100 +shape[i].Y + position.Y;
+                newshape[i].X = shape[i].X + position.X;
+                newshape[i].Y = -shape[i].Y + position.Y;
             }
 
             base.Update(deltaTime);

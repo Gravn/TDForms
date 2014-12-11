@@ -22,40 +22,65 @@ namespace TowerDefenseForms
         public static float deltaTime;
         private Point[] path = new Point[]
         {
-            new Point(100,450), 
-            new Point(450,450),
-            new Point(450,600),
+            new Point(128,512), 
+            new Point(512,512),
+            new Point(512,128),
         };
         private BufferedGraphics backBuffer;
         public PointF size;
         public Image[] images;
-        public PointF[][] shapes;
+        public PointF[][] shapes = new PointF[10][];
         public static float[][] stats;
         public static int money;
-
         public GameWorld(Graphics dc, Rectangle displayRectangle)
         {
             this.backBuffer = BufferedGraphicsManager.Current.Allocate(dc, displayRectangle);
             this.dc = backBuffer.Graphics;
             size = new PointF(displayRectangle.Width, displayRectangle.Height);
             gameObjects = new List<GameObject>();
-            gameObjects.Add(new BombTower(1, 1f, 3f, 600f, 100f, .1f,100,100, new PointF(200, 300), new PointF[] { new PointF(0, 0), new PointF(64, 0), new PointF(64, 64), new PointF(0,64) }, Color.Red));
-            gameObjects.Add(new LaserTower(1, 2f, 300, 5f, 10, 20, new PointF(200, 400), new PointF[] { new PointF(0, 0), new PointF(64, 0), new PointF(64, 64), new PointF(0, 64) }, Color.Green));
-
-            gameObjects.Add(new NormalEnemy(10,100,5,path,10,new PointF(100,200),new PointF[]{ new PointF(0,0),new PointF(64,-32), new PointF(64,32) },Color.Blue));
-            gameObjects.Add(new SpawningEnemy(10, 100, 0, path, 100, new PointF(100, 100), new PointF[] { new PointF(0, 0), new PointF(64, 0), new PointF(64, 64), new PointF(0, 64) }, 4));
-            //SetupWorld();
+            
+            SetupWorld();
         }
-
         public void SetupWorld()
         {
             shapes[0] = new PointF[]
             {
                 new PointF(0, 0),
-                new PointF(100, 0),
-                new PointF(100, 100),
-                new PointF(0, 100)
+                new PointF(64, 0),
+                new PointF(64, 64),
+                new PointF(0, 64)
             };
+
+            shapes[1] = new PointF[]
+            {
+                new PointF(0, 0),
+                new PointF(64, 0),
+                new PointF(64, 64),
+                new PointF(0, 64)
+            };
+
+            shapes[2] = new PointF[]
+            {
+                new PointF(0, 0),
+                new PointF(64, 0),
+                new PointF(64, 64),
+                new PointF(0, 64)
+            };
+            
+            for (int i = 0; i < size.X / 64 - 1; i++)
+            {
+                for (int j = 0; j < size.Y / 64 - 1; j++)
+                {
+                    gameObjects.Add(new GUIElement(63, 63, new PointF(i * 64, j * 64), new PointF[] { new PointF(0, 0) }, Color.BlueViolet));
+                }
+            }
+            
+            gameObjects.Add(new BombTower(1, 1f, 3f, 600f, 100f, .1f, 300, 200, new PointF(256, 256),shapes[0], Color.Red));
+            gameObjects.Add(new LaserTower(1, 1f, 300, 5f, 2, 20, new PointF(256,384),shapes[0], Color.Green));
+
+            gameObjects.Add(new NormalEnemy(10, 100, 5, path, 10, new PointF(128, 64),shapes[0], Color.Blue));
+            gameObjects.Add(new NormalEnemy(10, 100, 5, path, 10, new PointF(0, 64), shapes[0], Color.Blue));
+            gameObjects.Add(new SpawningEnemy(10, 100, 0, path, 100, new PointF(100, 100),shapes[0], 4));            
         }
 
         public void GameLoop()
@@ -79,7 +104,7 @@ namespace TowerDefenseForms
 
         private void Draw()
         {
-            dc.Clear(Color.CornflowerBlue);
+            dc.Clear(Color.Black);
             for (int i = 0; i < gameObjects.Count; i++)
             {
                 gameObjects[i].Draw(dc);

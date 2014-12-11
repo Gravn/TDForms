@@ -11,25 +11,27 @@ namespace TowerDefenseForms
     abstract class GameObject
     {
         public PointF position;
-        public PointF[] shape;
+        public PointF[] shape,newshape;
         public Color color;
 
-        public GameObject(PointF position,PointF[] shape,Color color)
+        public GameObject(PointF position, PointF[] shape, Color color)
         {
             this.position = position;
             this.color = color;
             this.shape = shape;
+            newshape = new PointF[shape.Length];
 
+            //gravn movement:
             for (int i = 0; i < shape.Length; i++)
             {
-                shape[i].X += position.X;
-                shape[i].Y += position.Y;
+                newshape[i].X = shape[i].X + position.X;
+                newshape[i].Y = shape[i].Y + position.Y;
             }
         }
 
         public virtual void Update(float deltaTime)
         {
-
+            
         }
 
         public virtual void Draw(Graphics dc)

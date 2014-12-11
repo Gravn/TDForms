@@ -49,7 +49,8 @@ namespace TowerDefenseForms
             base.Draw(dc);
             Pen p = new Pen(Brushes.Blue);
             p.Color = color;
-            dc.DrawPolygon(p,shape);
+            dc.DrawPolygon(p,newshape);
+            dc.FillPolygon(new SolidBrush(color),newshape);
 
         }
 
