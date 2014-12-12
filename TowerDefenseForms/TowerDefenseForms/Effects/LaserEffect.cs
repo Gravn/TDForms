@@ -19,11 +19,15 @@ namespace TowerDefenseForms
             this.target = target;
             this.damage = damage;
             this.lifeTime = lifeTime;
-            //width needs proper calc, otherwise too wide.
+            
+            //width, som er en unik variabel for LaserEffect, er for at indikere til spilleren hvor meget effekten skader.
+            //Jo mere laseren skader, jo bredere er laseren når den bliver tegnet.
             width = damage;
+
+            
             if (target is Enemy)
             {
-                (target as Enemy).GetHit(damage);
+                (target as Enemy).GetHit(damage); //Her kaldes Enemy klassens GetHit funktion. Det var planlagt at forskellige fjender reagerede forskelligt på skade.
             }
         }
 
@@ -35,6 +39,7 @@ namespace TowerDefenseForms
         public override void Draw(Graphics dc)
         {
  	        //base.Draw(dc);
+            //Der tegnes en laser/linje imellem origin(for det meste et tårn) og target(for det meste en fjende), der korrigeres position så der skydes fra og rammes ca i midten istedet for øverste højre hjørne.
             dc.DrawLine(new Pen(new SolidBrush(color), width),new PointF(origin.position.X+32,origin.position.Y+32), new PointF(target.position.X+32,target.position.Y+32));
         }
     }
