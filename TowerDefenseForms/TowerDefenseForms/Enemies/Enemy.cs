@@ -9,7 +9,7 @@ namespace TowerDefenseForms
 {
     abstract class Enemy : GameObject
     {
-        #region fields
+        #region Fields
         private int prize;
         private int currentPath;
         private float armor, speed, hp;
@@ -40,17 +40,14 @@ namespace TowerDefenseForms
             this.path = path;
             newshape = new PointF[shape.Length];
         }
-        public override void Update(float deltaTime)
+        public override void Update(float deltaTime) //Loopet for alt fjenderne gør
         {
             if (hp <= 0)
             {
                 Die();
-                
             }
-            
             Move();
-
-            //gravn movement:
+            //Definerer fjendernes form som spillet kører og den løbende bevæger sig
             for (int i = 0; i < shape.Length; i++)
             {
                 newshape[i].X = shape[i].X + position.X;
@@ -59,9 +56,9 @@ namespace TowerDefenseForms
 
             base.Update(deltaTime);
         }
-        public void Move()
+        public void Move() //Bevæger alle fjenderne efter en sti defineret i arrayet "path"
         {
-            if (this.position != path[currentPath])
+            if (this.position != path[currentPath]) //Hvis fjenden ikke er på stiens næste punkt bevæger den sig derhen, "position" er et punkt nedarvet af GameObject
             {
                 if (this.position.X < path[currentPath].X)
                 {
@@ -82,27 +79,27 @@ namespace TowerDefenseForms
             }
             else
             {
-                this.currentPath++;
+                this.currentPath++; //Når det næste punkt er nået øges denne variabel som definerer hvilket punkt fjenden er nået til.
             }
         }
-        public void Goal()
+        public void Goal() //Kaldes som fjenden når det sidste punkt dør den og spilleren mister et liv
         {
             if (position == path.Last())
             {
-
+                //Lost HP
                 GameWorld.gameobjects.Remove(this);
             }
         }
-        public virtual void Die()
+        public virtual void Die() //Kaldes når fjenden er på 0 eller mindre hp
         {
             GameWorld.gameobjects.Remove(this);
         }
-        public override void Draw(Graphics dc)
+        public override void Draw(Graphics dc) //Tegner fjenderne som fyldte polygoner defineret i Update
         {
             dc.FillPolygon(new SolidBrush(color),newshape);
             base.Draw(dc);
         }
-        public void GetHit(float dmg)
+        public void GetHit(float dmg) //Kaldes når en fjende bliver ramt
         {
             hp -= dmg;
         }
