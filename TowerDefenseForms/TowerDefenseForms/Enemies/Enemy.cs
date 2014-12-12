@@ -46,49 +46,65 @@ namespace TowerDefenseForms
             {
                 Die();
             }
-            Move();
+            Move(deltaTime);
             //Definerer fjendernes form som spillet kører og den løbende bevæger sig
             for (int i = 0; i < shape.Length; i++)
             {
                 newshape[i].X = shape[i].X + position.X;
                 newshape[i].Y = shape[i].Y + position.Y;
             }
+            try//try lykke til at stoppe IndexOutOfRangeException
+            {
+                if (path == null || position == path.Last()) //Tjekker om en fjende når i mål
+                {
+                    Goal();
+                }
+            }
+            catch (IndexOutOfRangeException e)
+            {
+
+            }
 
             base.Update(deltaTime);
         }
-        public void Move() //Bevæger alle fjenderne efter en sti defineret i arrayet "path"
+        public void Move(float deltaTime) //Bevæger alle fjenderne efter en sti defineret i arrayet "path"
         {
-            if (this.position != path[currentPath]) //Hvis fjenden ikke er på stiens næste punkt bevæger den sig derhen, "position" er et punkt nedarvet af GameObject
+            try //try løkke til at stoppe IndexOutOfRangeException
             {
-                if (this.position.X < path[currentPath].X)
+
+                if (this.position != path[currentPath]) //Hvis fjenden ikke er på stiens næste punkt bevæger den sig derhen, "position" er et punkt nedarvet af GameObject
                 {
-                    this.position.X += speed;
+                    if (this.position.X < path[currentPath].X)
+                    {
+                        this.position.X += speed;
+                    }
+                    if (this.position.Y < path[currentPath].Y)
+                    {
+                        this.position.Y += speed;
+                    }
+                    if (this.position.Y > path[currentPath].Y)
+                    {
+                        this.position.Y -= speed;
+                    }
+                    if (this.position.X > path[currentPath].X)
+                    {
+                        this.position.X -= speed;
+                    }
                 }
-                if (this.position.Y < path[currentPath].Y)
+                else
                 {
-                    this.position.Y += speed;
-                }
-                if (this.position.Y > path[currentPath].Y)
-                {
-                    this.position.Y -= speed;
-                }
-                if (this.position.X > path[currentPath].Y)
-                {
-                    this.position.X -= speed;
+                    this.currentPath++; //Når det næste punkt er nået øges denne variabel som definerer hvilket punkt fjenden er nået til.
                 }
             }
-            else
+            catch(IndexOutOfRangeException e)
             {
-                this.currentPath++; //Når det næste punkt er nået øges denne variabel som definerer hvilket punkt fjenden er nået til.
+
             }
         }
         public void Goal() //Kaldes som fjenden når det sidste punkt dør den og spilleren mister et liv
         {
-            if (position == path.Last())
-            {
                 //Lost HP
                 GameWorld.gameobjects.Remove(this);
-            }
         }
         public virtual void Die() //Kaldes når fjenden er på 0 eller mindre hp
         {
