@@ -1,0 +1,11 @@
+C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\bin\Release\TowerDefenseForms.exe.config
+C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Release\TowerDefenseForms.Form1.resources
+C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Release\TowerDefenseForms.Properties.Resources.resources
+C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Release\TowerDefenseForms.csproj.GenerateResource.Cache
+C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\bin\Release\GUI\cancel.png
+C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\bin\Release\GUI\sell.png
+C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\bin\Release\GUI\upgrade.png
+C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\bin\Release\TowerDefenseForms.exe
+C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\bin\Release\TowerDefenseForms.pdb
+C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Release\TowerDefenseForms.exe
+C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Release\TowerDefenseForms.pdb

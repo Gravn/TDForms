@@ -76,7 +76,7 @@ namespace TowerDefenseForms
         //bliver aldrig kaldt, men skulle have været kaldt fra knapper.
         public virtual void Upgrade()
         {
-            GameWorld.money -= buyPrice;
+            GameWorld.playerStats[0] -= buyPrice;
             //justér lvl, justér stats.
         }
         
@@ -99,7 +99,7 @@ namespace TowerDefenseForms
         //bliver aldrig kaldt, men skulle have været kaldt fra knapper.
         public virtual void Sell()
         {
-            GameWorld.money += sellPrice;
+            GameWorld.playerStats[0] += sellPrice;
             Destroy(this);
         }
 

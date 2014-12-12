@@ -149,7 +149,9 @@ namespace TowerDefenseForms
                     if((gameObjects[i] as Button).Clicked())
                     {
                         //if stat money >= towerprice(from towerstats)
-                        gameObjects.Add(new LaserTower(1, 1f, 300, 5f, 2, 20, new PointF(gameObjects[i].position.X, gameObjects[i].position.Y), shapes[0], Color.Green)); 
+                        gameObjects.Add(new LaserTower(1, 1f, 300, 5f, 2, 20, new PointF(gameObjects[i].position.X, gameObjects[i].position.Y), shapes[0], Color.Green));
+                        gameObjects[i].Destroy(gameObjects[i]);
+
                         //stat money -= towercost(from towerstats)
                     }
                 }
