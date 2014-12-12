@@ -16,3 +16,6 @@ C:\Users\Mads\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Debug\To
 C:\Users\Mads\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Debug\TowerDefenseForms.csproj.GenerateResource.Cache
 C:\Users\Mads\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Debug\TowerDefenseForms.exe
 C:\Users\Mads\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\obj\Debug\TowerDefenseForms.pdb
+C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\bin\Debug\GUI\cancel.png
+C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\bin\Debug\GUI\sell.png
+C:\Users\Comrade\Documents\TDForms\TowerDefenseForms\TowerDefenseForms\bin\Debug\GUI\upgrade.png

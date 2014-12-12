@@ -29,6 +29,12 @@ namespace TowerDefenseForms
             }
         }
 
+        public GameObject(PointF position, string imagePath, Color color)
+        {
+            this.position = position;
+            this.color = color;
+        }
+
         public virtual void Update(float deltaTime)
         {
             

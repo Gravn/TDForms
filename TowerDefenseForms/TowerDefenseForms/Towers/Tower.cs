@@ -17,6 +17,7 @@ namespace TowerDefenseForms
         private float fireTimer;
         private int buyPrice;
         private int sellPrice;
+        private Button[] Buttons = new Button[4];
 
         public Tower(int level, float damage, float range, float rateOfFire, int buyPrice, int sellPrice, PointF position, PointF[] shape, Color color):base(position, shape, color)
         {
@@ -26,14 +27,49 @@ namespace TowerDefenseForms
             this.rateOfFire = rateOfFire;
             this.buyPrice = buyPrice;
             this.sellPrice = sellPrice;
+
+            Buttons[0] = new Button(63, 63, position,"", Color.Blue);
+            GameWorld.gameobjects.Add(Buttons[0]);
         }
 
         public override void Update(float deltaTime)
         {
             base.Update(deltaTime);
+
+            if(Buttons[0].Clicked())
+            {
+                Buttons[1] = new Button(32, 32, new PointF(position.X+16, position.Y + 64),@"GUI\cancel.png", Color.Red);
+                Buttons[2] = new Button(32, 32, new PointF(position.X +64, position.Y+16),@"GUI\upgrade.png", Color.Green);
+                Buttons[3] = new Button(32, 32, new PointF(position.X+16, position.Y - 32),@"GUI\sell.png",Color.Yellow);
+                for (int i = 0; i < Buttons.Length; i++)
+                {
+                    GameWorld.gameobjects.Add(Buttons[i]);
+                }
+
+                if (Buttons[1].Clicked())
+                {
+                    for (int i = 0; i < Buttons.Length; i++)
+                    {
+                        Buttons[i].Destroy(this);
+                        Buttons = new Button[4];
+                    }
+                }
+
+                if (Buttons[2].Clicked())
+                {
+                    Upgrade();
+                }
+
+                if (Buttons[3].Clicked())
+                {
+                    Sell();
+                }
+                
+            }
+
             fireTimer += deltaTime;
 
-            if(fireTimer >= 1/rateOfFire)
+            if(fireTimer > 1/rateOfFire)
             {
                 Attack();
             }

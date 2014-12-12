@@ -13,12 +13,14 @@ namespace TowerDefenseForms
         private float width,height;
         private RectangleF rect;
         private bool hover;
+        private string imagePath;
 
-        public GUIElement(float width, float height, PointF position, PointF[] shape, Color color)
-            : base(position, shape, color)
+        public GUIElement(float width, float height,PointF position,string imagePath, Color color)
+            : base(position,imagePath, color)
         {
             this.width = width;
             this.height = height;
+            this.imagePath = imagePath;
             rect = new RectangleF(position,new SizeF(width,height));
         }
 

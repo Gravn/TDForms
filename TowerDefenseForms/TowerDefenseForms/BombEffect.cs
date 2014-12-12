@@ -20,6 +20,8 @@ namespace TowerDefenseForms
             this.damage = damage;
             this.lifeTime = lifeTime;
             this.bombRadius = bombRadius;
+            this.position = target.position;
+
             //width needs proper calc, otherwise too wide.
         }
 
@@ -51,7 +53,7 @@ namespace TowerDefenseForms
         {
             base.Draw(dc);
             Pen p = new Pen(new SolidBrush(color),2);
-            dc.DrawEllipse(p,new RectangleF(target.position.X-32,target.position.Y-32,128,128));
+            dc.DrawEllipse(p,new RectangleF(position.X-32,position.Y-32,128,128));
         }
     }
 }

@@ -12,14 +12,25 @@ namespace TowerDefenseForms
     {
         private float width, height;
         private RectangleF rect;
-        private bool hover;
+        private bool hover,imgpass;
+        private string imagePath;
+        private Image img;
 
-        public Button(float width, float height, PointF position, PointF[] shape, Color color)
-            : base(width,height,position, shape, color)
+        public Button(float width, float height,PointF position, string imagePath, Color color)
+            : base(width,height,position,imagePath, color)
         {
             this.width = width;
             this.height = height;
+            this.imagePath = imagePath;
             this.rect = new RectangleF(position, new SizeF(width, height));
+            try
+            {
+                img = Image.FromFile(imagePath);
+            }
+            catch 
+            {
+                imgpass = false;
+            }
         }
 
         public override void Update(float deltaTime)
@@ -29,6 +40,10 @@ namespace TowerDefenseForms
 
         public override void Draw(Graphics dc)
         {
+            if(imgpass)
+            {
+                dc.DrawImage(img, position);
+            }
             base.Draw(dc);
         }
 
