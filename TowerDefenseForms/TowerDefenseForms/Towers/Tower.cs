@@ -35,6 +35,8 @@ namespace TowerDefenseForms
         public override void Update(float deltaTime)
         {
             base.Update(deltaTime);
+
+            //Dette var et forsøg på på at lave funktionelle knapper til tårnene.
             /*
             if(Buttons[0].Clicked())
             {
@@ -45,7 +47,6 @@ namespace TowerDefenseForms
                 {
                     GameWorld.gameobjects.Add(Buttons[i]);
                 }
-
                 if (Buttons[1].Clicked())
                 {
                     for (int i = 0; i < Buttons.Length; i++)
@@ -54,17 +55,14 @@ namespace TowerDefenseForms
                         Buttons = new Button[4];
                     }
                 }
-
                 if (Buttons[2].Clicked())
                 {
                     Upgrade();
                 }
-
                 if (Buttons[3].Clicked())
                 {
                     Sell();
-                }
-                
+                }      
             }
             */
             fireTimer += deltaTime;
@@ -75,9 +73,11 @@ namespace TowerDefenseForms
             }
         }
 
+        //bliver aldrig kaldt, men skulle have været kaldt fra knapper.
         public virtual void Upgrade()
         {
             GameWorld.money -= buyPrice;
+            //justér lvl, justér stats.
         }
         
         public override void Draw(Graphics dc)
@@ -90,11 +90,13 @@ namespace TowerDefenseForms
 
         }
 
+        //Tower Attack og dets subklasser angriber ikke fjender direkte, men instantierer effekter som kalder funktioner på de fjender de rammer.
         public virtual void Attack()
         {
             
         }
 
+        //bliver aldrig kaldt, men skulle have været kaldt fra knapper.
         public virtual void Sell()
         {
             GameWorld.money += sellPrice;

@@ -16,6 +16,7 @@ namespace TowerDefenseForms
         private string imagePath;
         private Image img;
 
+        //knapper bruger blandt andet string til Image.FromFile() istedet for shapes.
         public Button(float width, float height,PointF position, string imagePath, Color color)
             : base(width,height,position,imagePath, color)
         {
@@ -23,6 +24,8 @@ namespace TowerDefenseForms
             this.height = height;
             this.imagePath = imagePath;
             this.rect = new RectangleF(position, new SizeF(width, height));
+
+            //Nogle knapper bruger ikke en ordentlig imagepath, men bruger kun base.draw.(quickfix, skulle have brugt flere constructors)
             try
             {
                 img = Image.FromFile(imagePath);
@@ -46,7 +49,7 @@ namespace TowerDefenseForms
             }
             base.Draw(dc);
         }
-
+        
         public bool Clicked()
         {
             if (Cursor.Position.X >= position.X && Cursor.Position.X < position.X + width && Cursor.Position.Y >= position.Y && Cursor.Position.Y <= position.Y + height && Control.MouseButtons == MouseButtons.Left)

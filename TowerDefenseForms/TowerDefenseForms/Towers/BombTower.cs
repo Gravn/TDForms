@@ -39,7 +39,8 @@ namespace TowerDefenseForms
 
         public override void Update(float deltaTime)
         {
-            base.Update(deltaTime);
+
+            base.Update(deltaTime); //Dette kalder en timer som aktiverer objektets Attack()
         }
 
         public override void Draw(Graphics dc)
@@ -51,13 +52,13 @@ namespace TowerDefenseForms
         public override void Attack()
         {
             base.Attack();
+
              GameObject target = null;
 
             for (int i = 0; i < GameWorld.gameobjects.Count; i++)
             {
                 if (GameWorld.gameobjects[i] is Enemy)
                 {
-                    //get nearest
                     float dx = GameWorld.gameobjects[i].position.X - position.X;
                     float dy = GameWorld.gameobjects[i].position.Y - position.Y;
                     float distance = (float)Math.Sqrt(dx * dx + dy * dy);
@@ -69,13 +70,16 @@ namespace TowerDefenseForms
                     }
                 }
             }
+
+            //target fundet. Dette gør at bombtower ikke bare laver effekter ud i luften eller resetter sin timer uden at have noget at angribe.
             if(target != null)
-            {
+            {            
+                //Create BombEffect
                 GameWorld.gameobjects.Add(new BombEffect(this,target,damage,bombRadius,3f,target.position,new PointF[] {position},Color.PowderBlue));
                 fireTimer =0;
             }
 
-            //Create BombEffect
+
         }
     }
 }

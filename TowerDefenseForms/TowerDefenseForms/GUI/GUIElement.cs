@@ -27,6 +27,7 @@ namespace TowerDefenseForms
         public override void Update(float deltaTime)
         {
             base.Update(deltaTime);
+            //Det var tænkt at hover kunne have været brugt til tooltip, udover den generelle feedback til brugeren.
             if (Cursor.Position.X >= position.X && Cursor.Position.X < position.X + width && Cursor.Position.Y >= position.Y && Cursor.Position.Y <= position.Y + height)
             {
                 hover = true;
