@@ -35,7 +35,7 @@ namespace TowerDefenseForms
         public override void Update(float deltaTime)
         {
             base.Update(deltaTime);
-
+            /*
             if(Buttons[0].Clicked())
             {
                 Buttons[1] = new Button(32, 32, new PointF(position.X+16, position.Y + 64),@"GUI\cancel.png", Color.Red);
@@ -66,7 +66,7 @@ namespace TowerDefenseForms
                 }
                 
             }
-
+            */
             fireTimer += deltaTime;
 
             if(fireTimer > 1/rateOfFire)

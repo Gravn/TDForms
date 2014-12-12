@@ -89,12 +89,14 @@ namespace TowerDefenseForms
         {
             if (position == path.Last())
             {
-
+                //decrease player lives
                 GameWorld.gameobjects.Remove(this);
+
             }
         }
         public virtual void Die()
         {
+            //increase player money
             GameWorld.gameobjects.Remove(this);
         }
         public override void Draw(Graphics dc)
